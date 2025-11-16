@@ -1,0 +1,19 @@
+# ========== Model Paths ==========
+base_model: "Qwen/Qwen2.5-3B-Instruct" 
+adapter: "../models/model_latency_1epoch"
+
+# ========== Dataset ==========
+dataset: "../dataset/model_latency_and_sft_qwen_prompt/test"
+prompt_column: "prompt"
+
+# ========== Output ==========
+output_dir: "../inference/output/model_latency_3b"
+
+# ========== Inference Hyperparameters ==========
+batch_size: 4
+max_new_tokens: 2048
+limit: 1   # set null for no limit
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

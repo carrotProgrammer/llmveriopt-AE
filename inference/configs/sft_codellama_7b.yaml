@@ -1,0 +1,15 @@
+base_model: "meta-llama/CodeLlama-7b-Instruct-hf" 
+adapter: "../models/sft_codellama_7b_1epoch"
+
+dataset: "../dataset/sft_codellama_prompt/test"
+prompt_column: "prompt"
+
+output_dir: "../inference/output/sft_codellama_7b_1epoch"
+
+batch_size: 4
+max_new_tokens: 2048
+limit: 1
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

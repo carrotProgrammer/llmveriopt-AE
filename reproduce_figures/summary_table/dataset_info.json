@@ -1,0 +1,248 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "uid": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_O0_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "LLVM_O0_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_O0_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_O0_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_instcombine_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_LLVM_instcombine": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "LLVM_instcombine_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_instcombine_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLVM_instcombine_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3B_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Qwen_3B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Qwen_3B_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3B_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3B_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Latency_3B_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Model_Latency_3B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Model_Latency_3B_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Latency_3B_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Latency_3B_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Correctness_3B_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Model_Correctness_3B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Model_Correctness_3B_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Correctness_3B_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Model_Correctness_3B_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "CodeLlama_7B_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_CodeLlama_7B_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "CodeLlama_7B_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "CodeLlama_7B_SFT_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "CodeLlama_7B_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_3B_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Llama_3B_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Llama_3B_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_3B_SFT_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_3B_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_8b_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Llama_8b_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Llama_8b_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_8b_SFT_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Llama_8b_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3b_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Qwen_3b_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Qwen_3b_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3b_SFT_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_3b_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_7b_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Qwen_7b_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Qwen_7b_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_7b_SFT_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_7b_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_32b_SFT_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_Qwen_32b_SFT": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Qwen_32b_SFT_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "Qwen_32b_SFT_size": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "Qwen_32b_SFT_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLM_Compiler_7B_IR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "status_LLM_Compiler_7B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "LLM_Compiler_7B_latency": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLM_Compiler_7B_size": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "LLM_Compiler_7B_icount": {
+      "dtype": "int64",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

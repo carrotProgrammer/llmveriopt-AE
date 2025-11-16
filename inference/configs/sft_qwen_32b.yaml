@@ -1,0 +1,15 @@
+base_model: "Qwen/Qwen2.5-32B-Instruct"  
+adapter: "../models/sft_qwen_32b_1epoch"
+
+dataset: "../dataset/model_latency_and_sft_qwen_prompt/test"
+prompt_column: "prompt"
+
+output_dir: "../inference/output/sft_qwen_32b_1epoch"
+
+batch_size: 4
+max_new_tokens: 2048
+limit: 1
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

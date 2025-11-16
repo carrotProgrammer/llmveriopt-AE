@@ -1,0 +1,25 @@
+##############################################
+# Artifact .gitignore (safe for GitHub AE)
+##############################################
+
+# ---- Do NOT upload datasets (too large) ----
+dataset/
+
+# ---- Python cache / temporary files ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---- Jupyter notebooks checkpoints ----
+.ipynb_checkpoints/
+
+# ---- Temporary / swap files ----
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ---- macOS / Windows junk ----
+.DS_Store
+Thumbs.db

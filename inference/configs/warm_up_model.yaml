@@ -1,0 +1,19 @@
+# ========== Model Paths ==========
+base_model: "Qwen/Qwen2.5-3B-Instruct" 
+adapter: "../models/warmup_model_1epoch/recovered_lora"
+
+# ========== Dataset ==========
+dataset: "../dataset/model_correctness_prompt/test"
+prompt_column: "prompt"
+
+# ========== Output ==========
+output_dir: "../inference/output/warm_up_model"
+
+# ========== Inference Hyperparameters ==========
+batch_size: 4
+max_new_tokens: 4096
+limit: 1   # set null for no limit
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

@@ -1,0 +1,15 @@
+base_model: "meta-llama/Llama-3.2-3B-Instruct"
+adapter: "../models/sft_llama3_3b_1epoch"
+
+dataset: "../dataset/sft_llama3_prompt/test"
+prompt_column: "prompt"
+
+output_dir: "../inference/output/sft_llama3_3b_1epoch"
+
+batch_size: 4
+max_new_tokens: 2048
+limit: 1
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

@@ -1,0 +1,15 @@
+base_model: "Qwen/Qwen2.5-3B-Instruct" 
+adapter: "../models/model_zero_1epoch/recovered_lora"
+
+dataset: "../dataset/model_zero_prompt/test"
+prompt_column: "prompt"
+
+output_dir: "../inference/output/model_zero_1epoch"
+
+batch_size: 4
+max_new_tokens: 2048
+limit: 1
+temperature: 0.0
+top_p: 1.0
+do_sample: false
+trust_remote_code: false

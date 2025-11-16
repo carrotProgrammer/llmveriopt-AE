@@ -1,0 +1,14 @@
+
+mode: violin
+models:
+  - Model_Latency_3B
+  - LLVM_O0
+  - LLVM_instcombine
+metrics:
+  - latency
+  - BinSize
+  - ICount
+dataset_path: ./summary_tabel
+output_dir: outputs
+log_level: INFO
+
