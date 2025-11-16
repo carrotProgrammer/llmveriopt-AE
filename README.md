@@ -10,15 +10,16 @@ Both full evaluation and lightweight sampling-based evaluation are supported.
 
 ## Platform Requirement
 
-This artifact **must be evaluated on a modern Linux environment**.  
-All scripts (shell scripts, environment setup, execution flow) are developed and tested exclusively on Linux.  
-Running the artifact on Windows or macOS is **not supported** and may lead to failures.
+This artifact is **developed and tested primarily on Linux**.  
+All evaluation scripts are standard POSIX-compatible shell scripts (`.sh`), and the pipeline relies on common Linux utilities.
 
-Recommended environment:
+Other Unix-like systems (e.g., macOS, WSL2) may also work **as long as**:
 
-- Linux kernel ≥ 5.0  
-- Python 3.10+  
-- CUDA-capable GPU (16–32GB+ depending on model)  
+- `.sh` scripts can be executed,  
+- Python + CUDA (optional for GPU) are correctly installed,  
+- required packages (PyTorch, Transformers, etc.) are available for that platform.
+
+Windows (native) is **not recommended**, but running through WSL2 generally works.
 
 ---
 
