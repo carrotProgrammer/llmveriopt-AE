@@ -10,16 +10,48 @@ Both full evaluation and lightweight sampling-based evaluation are supported.
 
 ## Platform Requirement
 
-This artifact is **developed and tested primarily on Linux**.  
-All evaluation scripts are standard POSIX-compatible shell scripts (`.sh`), and the pipeline relies on common Linux utilities.
+This artifact is developed and tested primarily on Linux.  
+All evaluation scripts are POSIX-compatible shell scripts (`.sh`), and the pipeline relies on tools commonly available in Linux environments.
 
 Other Unix-like systems (e.g., macOS, WSL2) may also work **as long as**:
 
-- `.sh` scripts can be executed,  
-- Python + CUDA (optional for GPU) are correctly installed,  
-- required packages (PyTorch, Transformers, etc.) are available for that platform.
+- `.sh` scripts can be executed,
+- Python + CUDA (optional for GPU) are correctly installed,
+- the required Python packages are available for the platform.
 
-Windows (native) is **not recommended**, but running through WSL2 generally works.
+Native Windows is **not recommended**, but WSL2 typically works.
+
+---
+
+## Hardware & Software Requirements
+
+### Hardware Requirements
+
+- **Recommended:** GPU ≥ **32 GB** (needed for 7B/8B/32B model evaluation).  
+- **Minimum:** GPU ≥ **16 GB** (sufficient for 3B models).  
+- **CPU-only mode:** Supported but **extremely slow** (may take days).  
+- We performed all measurements on an **NVIDIA RTX 3090 Ti (24 GB)**.  
+  Models larger than 3B may **trigger OOM** on GPUs with < 24 GB.
+
+### Software Requirements
+
+- Linux environment  
+- Python **3.10+**  
+- PyTorch  
+- Transformers  
+- PEFT  
+- datasets  
+- PyYAML  
+
+(Exact tested versions are listed in `requirements.txt`.)
+
+### Estimated Runtime
+
+The following estimates are based on experiments run on an **NVIDIA RTX 3090 Ti (24 GB)**:
+
+- **Sampling evaluation:** ~1 hour  
+- **Full evaluation (model_latency_3b):** 9–12 hours  
+- **Full 3B/7B/8B/32B evaluation:** multiple days on large-memory GPUs  
 
 ---
 
@@ -173,7 +205,7 @@ The figure-generation script reproduces all plots and tables from the paper.
 
 ## Notes for Evaluators
 
-- **Linux OS is required**; other platforms are not supported.
-- GPU memory below the required threshold will result in OOM errors.
+- Linux is the **recommended and tested** platform, but any system capable of running `.sh` scripts and installing dependencies may work.
+- GPU memory below the required threshold may result in OOM errors.
 - All generation uses greedy decoding → deterministic output.
 - CPU-only execution is possible but extremely slow.
