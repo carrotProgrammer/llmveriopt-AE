@@ -66,7 +66,7 @@ Download the dataset package from:
 After downloading and extracting, place the entire `dataset/` directory directly under the `artifact/` folder:
 
 ```text
-artifact/
+llmveriopt-AE/
 └── dataset/
     └── <dataset_files_here>
 ```
@@ -81,7 +81,6 @@ cd llmveriopt-AE
 You should now see a structure similar to:
 
 ```text
-artifact/
 models/
 inference/
 reproduce_figures/
@@ -122,7 +121,7 @@ huggingface-cli login
 ## Directory Structure
 
 ```text
-artifact/
+llmveriopt-AE/
 ├── models/
 ├── dataset/
 ├── inference/
