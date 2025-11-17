@@ -63,7 +63,14 @@ Download the dataset package from:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17625555.svg)](https://doi.org/10.5281/zenodo.17625555)
 
-After downloading and extracting, place the entire `dataset/` directory directly under the `artifact/` folder:
+After downloading and extracting, extract it using:
+
+```bash
+unzip llmveriopt-datasets.zip
+```
+place the entire `dataset/` directory directly under the `llmveriopt-AE/` folder:
+
+unzip llmveriopt-datasets.zip
 
 ```text
 llmveriopt-AE/
