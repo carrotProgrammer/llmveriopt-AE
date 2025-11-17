@@ -61,7 +61,8 @@ The following estimates are based on experiments run on an **NVIDIA RTX 3090 Ti 
 
 Download the dataset package from:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17625555.svg)](https://doi.org/10.5281/zenodo.17625555)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17625556.svg)](https://doi.org/10.5281/zenodo.17625556)
+
 
 After downloading and extracting, extract it using:
 
