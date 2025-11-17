@@ -13,7 +13,7 @@ Adapter path (LoRA/PEFT):
 /artifact/models/<model>
 
 Dataset (HF datasets on disk):
-/artifact/datasets/<model_dataset>
+/artifact/dataset/<model_dataset>
 The dataset must contain a string column named prompt.
 
 Note: fp32 only, no quantization.
