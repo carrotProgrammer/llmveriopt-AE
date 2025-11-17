@@ -5,8 +5,9 @@
 Simple inference script for artifact reproduction.
 
 Base model path:
-By default, the script pulls the model directly from Hugging Face.
-If you prefer to load the base model locally, place it under /artifact/base_model and update all base_model fields in configs/model_config.
+By default, the script pulls the base model directly from Hugging Face.
+You must be authorized on Hugging Face before running.
+If you prefer to load the base model locally, place it under /artifact/base_model and update all base_model fields in artifact/inference/configs/<model>.config.
 
 Adapter path (LoRA/PEFT):
 /artifact/models/<model>
