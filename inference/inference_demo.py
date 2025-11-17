@@ -4,22 +4,18 @@
 """
 Simple inference script for artifact reproduction.
 
-- Base model path: /artifact/model_latency_3b/base_model
-- Adapter path (LoRA/PEFT): /artifact/model_latency_3b/adapter/model_latency_1epoch
-- Dataset (HF datasets on disk): /artifact/model_latency_3b/test_data
-  * Must contain a string column named "prompt"
+Base model path:
+By default, the script pulls the model directly from Hugging Face.
+If you prefer to load the base model locally, place it under /artifact/base_model and update all base_model fields in configs/model_config.
 
-Usage (defaults already set):
-  python inference_demo.py \
-    --base_model /baseline_model/qwen2.5-3b-instruct-local \
-    --adapter /artifact/model_latency_3b/adapter/model_latency_1epoch \
-    --dataset /artifact/model_latency_3b/test_data \
-    --output /artifact/model_latency_3b/output \
-    --batch_size 4 \
-    --max_new_tokens 2048 \
-    --limit 10
+Adapter path (LoRA/PEFT):
+/artifact/models/<model>
 
-Note: fp32, no quantization
+Dataset (HF datasets on disk):
+/artifact/datasets/<model_dataset>
+The dataset must contain a string column named prompt.
+
+Note: fp32 only, no quantization.
 """
 
 import argparse
@@ -81,7 +77,7 @@ def batched_generate(
 def main():
     parser = argparse.ArgumentParser()
 
-    # ====== CLI 参数（有默认值，之后会被 YAML 覆盖）======
+    # ====== CLI parameter（default，but will overwrite by YAML）======
     parser.add_argument("--base_model", type=str, default="Qwen/Qwen2.5-3B-Instruct")
     parser.add_argument("--adapter", type=str,
                         default="artifact/model_latency_3b/adapter/model_latency_1epoch")
@@ -102,7 +98,7 @@ def main():
 
     args = parser.parse_args()
 
-    # ====== 读取 YAML 配置，覆盖 args（如果存在）======
+    # ====== Read YAML configuration，overwrite args（if exist）======
     config_path = os.path.join(SCRIPT_DIR, "inference_config.yaml") 
     if os.path.exists(config_path):
         with open(config_path, "r", encoding="utf-8") as f:
