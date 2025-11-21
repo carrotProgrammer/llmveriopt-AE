@@ -15,59 +15,59 @@ LIMIT=32
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# ============================================================
-# NOTE FOR ARTIFACT EVALUATION:
-# It is strongly recommended to run *only the 3B models*
-# during evaluation. Models of 7B or larger typically require
-# **at least 32GB of GPU memory** to perform inference
-# (depending on precision). Running these larger models on CPU
-# is possible but will be **extremely slow**.
-# ============================================================
+# # ============================================================
+# # NOTE FOR ARTIFACT EVALUATION:
+# # It is strongly recommended to run *only the 3B models*
+# # during evaluation. Models of 7B or larger typically require
+# # **at least 32GB of GPU memory** to perform inference
+# # (depending on precision). Running these larger models on CPU
+# # is possible but will be **extremely slow**.
+# # ============================================================
 
-# ============================================================
-# List of configuration files to evaluate.
-# Comment out any configs you do not want to run.
-# Paths are relative to this script's directory.
-# ============================================================
-CONFIG_FILES=(
-  "configs/model_latency.yaml"
-  # "configs/sft_qwen_32b.yaml"
-  # "configs/sft_qwen_7b.yaml"
-  "configs/sft_qwen_3b.yaml"
-  # "configs/sft_llama3_3b.yaml"
-  # "configs/sft_llama3_8b.yaml"
-  "configs/model_correctness.yaml"
-  # # "configs/sft_codellama_7b.yaml"
-  # "configs/model_zero.yaml"
-  # "configs/warm_up_model.yaml"
-)
-# ============================================================
+# # ============================================================
+# # List of configuration files to evaluate.
+# # Comment out any configs you do not want to run.
+# # Paths are relative to this script's directory.
+# # ============================================================
+# CONFIG_FILES=(
+#   "configs/model_latency.yaml"
+#   # "configs/sft_qwen_32b.yaml"
+#   # "configs/sft_qwen_7b.yaml"
+#   "configs/sft_qwen_3b.yaml"
+#   # "configs/sft_llama3_3b.yaml"
+#   # "configs/sft_llama3_8b.yaml"
+#   "configs/model_correctness.yaml"
+#   # # "configs/sft_codellama_7b.yaml"
+#   # "configs/model_zero.yaml"
+#   # "configs/warm_up_model.yaml"
+# )
+# # ============================================================
 
-echo "[INFO] Starting batch inference with LIMIT = ${LIMIT}"
+# echo "[INFO] Starting batch inference with LIMIT = ${LIMIT}"
 
-for cfg in "${CONFIG_FILES[@]}"; do
-  FULL_CFG="${SCRIPT_DIR}/${cfg}"
+# for cfg in "${CONFIG_FILES[@]}"; do
+#   FULL_CFG="${SCRIPT_DIR}/${cfg}"
 
-  if [ ! -f "$FULL_CFG" ]; then
-    echo "[WARN] Config file not found, skipping: $FULL_CFG"
-    continue
-  fi
+#   if [ ! -f "$FULL_CFG" ]; then
+#     echo "[WARN] Config file not found, skipping: $FULL_CFG"
+#     continue
+#   fi
 
-  echo "============================================================"
-  echo "[INFO] Running inference using config: $FULL_CFG"
-  echo "============================================================"
+#   echo "============================================================"
+#   echo "[INFO] Running inference using config: $FULL_CFG"
+#   echo "============================================================"
 
-  TMP_CFG="${SCRIPT_DIR}/inference_config.yaml"
-  cp "$FULL_CFG" "$TMP_CFG"
+#   TMP_CFG="${SCRIPT_DIR}/inference_config.yaml"
+#   cp "$FULL_CFG" "$TMP_CFG"
 
-  if [ "$LIMIT" = "null" ]; then
-      sed -i 's/^limit: .*/limit: null/' "$TMP_CFG" || echo "limit: null" >> "$TMP_CFG"
-  else
-      sed -i "s/^limit: .*/limit: ${LIMIT}/" "$TMP_CFG" || echo "limit: ${LIMIT}" >> "$TMP_CFG"
-  fi
+#   if [ "$LIMIT" = "null" ]; then
+#       sed -i 's/^limit: .*/limit: null/' "$TMP_CFG" || echo "limit: null" >> "$TMP_CFG"
+#   else
+#       sed -i "s/^limit: .*/limit: ${LIMIT}/" "$TMP_CFG" || echo "limit: ${LIMIT}" >> "$TMP_CFG"
+#   fi
 
-  python "${SCRIPT_DIR}/inference_demo.py"
-done
+#   python "${SCRIPT_DIR}/inference_demo.py"
+# done
 
 echo "============================================================"
 echo "[INFO] Inference finished. Starting verification..."
@@ -77,6 +77,9 @@ echo "============================================================"
 # ============================================================
 # NEW SECTION: verify all generated results
 # ============================================================
+
+export TOOLS_DIR="${SCRIPT_DIR}/tools"
+export LD_LIBRARY_PATH="$TOOLS_DIR/llvm-project/build/lib:${LD_LIBRARY_PATH:-}"
 
 RESULT_ROOT="${SCRIPT_DIR}/output/new_result"
 
@@ -95,19 +98,19 @@ find "$RESULT_ROOT" -type f -name "results.csv" | while read -r csvfile; do
 
     # Ensure latency tool is executable
     chmod +x "${TOOLS_DIR}/aarch64_tti_latency"
-    chmod +x "${TOOLS_DIR}/llvm/build/bin/opt"
-    chmod +x "${TOOLS_DIR}/llvm/build/bin/llc"
-    chmod +x "${TOOLS_DIR}/llvm/build/bin/llvm-size"
-    chmod +x "${TOOLS_DIR}/alive-tv"
+    chmod +x "${TOOLS_DIR}/llvm-project/build/bin/opt"
+    chmod +x "${TOOLS_DIR}/llvm-project/build/bin/llc"
+    chmod +x "${TOOLS_DIR}/llvm-project/build/bin/llvm-size"
+    chmod +x "${TOOLS_DIR}/alive2/build/alive-tv"
 
     # Run verify.py and capture exit status
     if python "${SCRIPT_DIR}/verify.py" \
         --input "$csvfile" \
         --output "$metrics_out" \
-        --alive "${TOOLS_DIR}/alive-tv" \
+        --alive "${TOOLS_DIR}/alive2/build/alive-tv" \
         --latency "${TOOLS_DIR}/aarch64_tti_latency" \
-        --llvm-bin "${TOOLS_DIR}/llvm/build/bin" \
-        --instcount "${TOOLS_DIR}/llvm/build/lib/InstCount.so"; then
+        --llvm-bin "${TOOLS_DIR}/llvm-project/build/bin" \
+        --instcount "${TOOLS_DIR}/llvm-project/build/lib/InstCount.so"; then
 
         echo "[INFO] Metrics saved to: $metrics_out"
 
