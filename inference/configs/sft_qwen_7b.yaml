@@ -4,7 +4,7 @@ adapter: "../models/sft_qwen_7b_1epoch"
 dataset: "../dataset/model_latency_and_sft_qwen_prompt/test"
 prompt_column: "prompt"
 
-output_dir: "../inference/output/sft_qwen_7b_1epoch"
+output_dir: "../inference/output/new_result/sft_qwen_7b_1epoch"
 
 batch_size: 4
 max_new_tokens: 2048

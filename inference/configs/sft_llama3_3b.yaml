@@ -4,7 +4,7 @@ adapter: "../models/sft_llama3_3b_1epoch"
 dataset: "../dataset/sft_llama3_prompt/test"
 prompt_column: "prompt"
 
-output_dir: "../inference/output/sft_llama3_3b_1epoch"
+output_dir: "../inference/output/new_result/sft_llama3_3b_1epoch"
 
 batch_size: 4
 max_new_tokens: 2048

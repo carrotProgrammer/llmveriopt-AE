@@ -1,18 +1,14 @@
-# ========== Model Paths ==========
 base_model: "Qwen/Qwen2.5-3B-Instruct" 
-adapter: "../models/warmup_model_1epoch/recovered_lora"
+adapter: "../models/sft_qwen_3b_1epoch"
 
-# ========== Dataset ==========
-dataset: "../dataset/model_correctness_prompt/test"
+dataset: "../dataset/model_latency_and_sft_qwen_prompt/test"
 prompt_column: "prompt"
 
-# ========== Output ==========
-output_dir: "../inference/output/warm_up_model"
+output_dir: "../inference/output/new_result/sft_qwen_3b_1epoch"
 
-# ========== Inference Hyperparameters ==========
 batch_size: 4
-max_new_tokens: 4096
-limit: 1
+max_new_tokens: 2048
+limit: 32
 temperature: 0.0
 top_p: 1.0
 do_sample: false

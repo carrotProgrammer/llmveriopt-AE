@@ -4,7 +4,7 @@ adapter: "../models/model_zero_1epoch/recovered_lora"
 dataset: "../dataset/model_zero_prompt/test"
 prompt_column: "prompt"
 
-output_dir: "../inference/output/model_zero_1epoch"
+output_dir: "../inference/output/new_result/model_zero_1epoch"
 
 batch_size: 4
 max_new_tokens: 2048

@@ -8,7 +8,7 @@ metrics:
   - latency
   - BinSize
   - ICount
-dataset_path: ./summary_tabel
+dataset_path: ./summary_table
 output_dir: outputs
 log_level: INFO
 

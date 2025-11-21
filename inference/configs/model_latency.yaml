@@ -7,12 +7,12 @@ dataset: "../dataset/model_latency_and_sft_qwen_prompt/test"
 prompt_column: "prompt"
 
 # ========== Output ==========
-output_dir: "../inference/output/model_latency_3b"
+output_dir: "../inference/output/new_result/model_latency"
 
 # ========== Inference Hyperparameters ==========
 batch_size: 4
 max_new_tokens: 2048
-limit: 1   # set null for no limit
+limit: 1
 temperature: 0.0
 top_p: 1.0
 do_sample: false

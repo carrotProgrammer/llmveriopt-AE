@@ -27,8 +27,8 @@ Native Windows is **not recommended**, but WSL2 typically works.
 
 ### Hardware Requirements
 
-- **Recommended:** GPU ≥ **32 GB** (needed for 7B/8B/32B model evaluation).  
-- **Minimum:** GPU ≥ **16 GB** (sufficient for 3B models).  
+- **Recommended:** Nvidia GPU ≥ **32 GB** (needed for 7B/8B/32B model evaluation).  
+- **Minimum:** Nvidia GPU ≥ **16 GB** (sufficient for 3B models).  
 - **CPU-only mode:** Supported but **extremely slow** (may take days).  
 - We performed all measurements on an **NVIDIA RTX 3090 Ti (24 GB)**.  
   Models larger than 3B may **trigger OOM** on GPUs with < 24 GB.
@@ -61,12 +61,20 @@ The following estimates are based on experiments run on an **NVIDIA RTX 3090 Ti 
 
 Download the dataset package from:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17625555.svg)](https://doi.org/10.5281/zenodo.17625555)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17625556.svg)](https://doi.org/10.5281/zenodo.17625556)
 
-After downloading and extracting, place the entire `dataset/` directory directly under the `artifact/` folder:
+
+After downloading and extracting, extract it using:
+
+```bash
+unzip llmveriopt-datasets.zip
+```
+place the entire `dataset/` directory directly under the `llmveriopt-AE/` folder:
+
+unzip llmveriopt-datasets.zip
 
 ```text
-artifact/
+llmveriopt-AE/
 └── dataset/
     └── <dataset_files_here>
 ```
@@ -81,7 +89,6 @@ cd llmveriopt-AE
 You should now see a structure similar to:
 
 ```text
-artifact/
 models/
 inference/
 reproduce_figures/
@@ -122,7 +129,7 @@ huggingface-cli login
 ## Directory Structure
 
 ```text
-artifact/
+llmveriopt-AE/
 ├── models/
 ├── dataset/
 ├── inference/
