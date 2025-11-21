@@ -166,10 +166,11 @@ llmveriopt-AE/
 ### Sampling-based evaluation (recommended)
 
 Install Z3 (required for Alive2)
+
 ```bash
 sudo apt update
 sudo apt install z3 libz3-dev
-```bash
+```
 
 ```bash
 cd inference
